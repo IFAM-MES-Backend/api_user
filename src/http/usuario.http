@@ -1,0 +1,12 @@
+POST http://localhost:8080/user 
+Content-Type: application/json
+
+{
+    "nome": "Administador",
+    "login": "admin",
+    "senha": "123123",
+    "email": "admin@gmail.com"
+ }
+
+// Utiliza-se obrigatoriamente: ###, para separar uma requisção da outra. 
+ ###
