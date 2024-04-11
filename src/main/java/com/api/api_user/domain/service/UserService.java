@@ -1,5 +1,6 @@
 package com.api.api_user.domain.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import com.api.api_user.domain.dto.ResponseDto;
@@ -81,5 +82,14 @@ public class UserService {
 
     public UserDto validateLogin(String login, String password) {
         return modelMapper.map(userRepository.findUserByLoginAndPassword(login, password), UserDto.class);
+    }
+
+    public List<UserDto> getUserByName(String nome) {
+        List<User> users = userRepository.findUserByName(nome);
+        List<UserDto> dto = new ArrayList<>();
+        for(int i = 0; i < users.size(); i++) {
+            dto.add(modelMapper.map(users.get(i), UserDto.class));
+        }
+        return dto;
     }
 }

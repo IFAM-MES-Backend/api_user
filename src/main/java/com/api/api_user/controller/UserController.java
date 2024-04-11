@@ -62,4 +62,10 @@ public class UserController {
   public UserDto validateLogin(@Valid @PathVariable String login, @PathVariable String password) {
     return userService.validateLogin(login, password);
   }
+
+  @GetMapping(value = "/search/{name}")
+  public List<UserDto> getUserByName(@Valid @PathVariable String name) {
+    name = "%" + name + "%";
+    return userService.getUserByName(name);
+  }
 }
