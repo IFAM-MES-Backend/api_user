@@ -32,13 +32,13 @@ public class UserController {
   @Autowired
   private UserService userService;
 
-  @PostMapping //http://localhost:8080/user/
+  @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public ResponseDto saveUser(@Valid @RequestBody User user) {
     return userService.saveUser(user);
   }
 
-  @GetMapping(value = "/list") // http://localhost:8080/user/list
+  @GetMapping(value = "/list")
   public List<UserDto> getAllUser() {
     return userService.getAllUserOrderByName();
   }

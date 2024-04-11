@@ -82,5 +82,4 @@ public class UserService {
     public UserDto validateLogin(String login, String password) {
         return modelMapper.map(userRepository.findUserByLoginAndPassword(login, password), UserDto.class);
     }
-
 }
